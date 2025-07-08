@@ -1,0 +1,21 @@
+<section class="subscribe-section">
+    <div class="background-overlay"></div>
+    <div class="container">
+      <div class="icon-container">
+        <img src="assets/images/subscribe-icon.svg" alt="Subscribe Icon">
+      </div>
+      <div class="form-container">
+        <h2>اشترك الآن</h2>
+        <p>للتعرف على أحدث المعلومات عن وزارة الاتصالات وتكنولوجيا المعلومات وكافة الجهات التابعة لها</p>
+        <form (submit)="onSubscribe(emailInput.value)" class="subscribe-form">
+          <div class="input-group">
+            <fa-icon [icon]="faEnvelope" class="input-icon"></fa-icon>
+            <input #emailInput type="email" placeholder="أدخل بريدك الإلكتروني" required>
+          </div>
+          <button type="submit" class="submit-btn">
+            اشترك <fa-icon [icon]="faChevronLeft"></fa-icon>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section> 

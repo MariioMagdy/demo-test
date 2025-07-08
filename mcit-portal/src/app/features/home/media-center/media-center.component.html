@@ -1,0 +1,33 @@
+<section class="media-center-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="title-and-filters">
+          <h2>المركز الإعلامي</h2>
+          <div class="filters">
+            <button class="filter-btn" [class.active]="activeFilter === 'all'" (click)="setFilter('all')">
+              <fa-icon [icon]="faThLarge"></fa-icon> الكل
+            </button>
+            <button class="filter-btn" [class.active]="activeFilter === 'photo'" (click)="setFilter('photo')">
+              <fa-icon [icon]="faImages"></fa-icon> الصور
+            </button>
+            <button class="filter-btn" [class.active]="activeFilter === 'video'" (click)="setFilter('video')">
+              <fa-icon [icon]="faVideo"></fa-icon> الفيديو
+            </button>
+          </div>
+        </div>
+        <a href="#" class="show-all-btn">عرض الكل</a>
+      </div>
+  
+      <div class="media-gallery">
+        <div class="media-card" *ngFor="let item of filteredItems">
+          <div class="card-image" [style.background-image]="'url(' + item.imageUrl + ')'">
+            <div class="card-overlay">
+                <fa-icon *ngIf="item.type === 'photo'" [icon]="faImages" class="type-icon"></fa-icon>
+                <fa-icon *ngIf="item.type === 'video'" [icon]="faVideo" class="type-icon"></fa-icon>
+                <h3 class="card-title">{{ item.title }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 

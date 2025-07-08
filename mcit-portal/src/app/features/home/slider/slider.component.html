@@ -1,0 +1,18 @@
+<div class="slider-container" [style.backgroundImage]="'url(' + slides[currentSlide].image + ')'">
+  <div class="slider-overlay"></div>
+  <div class="slider-content">
+    <h1>{{ slides[currentSlide].title }}</h1>
+    <p>{{ slides[currentSlide].subtitle }}</p>
+    <button class="cta-button">
+      <span>اقرأ المزيد</span>
+      <fa-icon [icon]="faChevronLeft"></fa-icon>
+    </button>
+  </div>
+  <div class="slider-nav">
+    <span *ngFor="let slide of slides; let i = index"
+          class="nav-bullet"
+          [class.active]="i === currentSlide"
+          (click)="goToSlide(i)">
+    </span>
+  </div>
+</div> 

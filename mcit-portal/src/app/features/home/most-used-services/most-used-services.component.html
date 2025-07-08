@@ -1,0 +1,46 @@
+<section class="services-section">
+  <div class="section-header">
+    <h2>الخدمات الأكثر استخداما</h2>
+    <div class="filters">
+      <button class="filter-btn" [class.active]="activeFilter === 'individual'" (click)="setFilter('individual')">
+        <fa-icon [icon]="faUsers"></fa-icon> أفراد
+      </button>
+      <button class="filter-btn" [class.active]="activeFilter === 'institution'" (click)="setFilter('institution')">
+        <fa-icon [icon]="faBuilding"></fa-icon> مؤسسات
+      </button>
+      <button class="filter-btn" [class.active]="activeFilter === 'non-profit'" (click)="setFilter('non-profit')">
+        <fa-icon [icon]="faHandHoldingHeart"></fa-icon> منظمات غير ربحية
+      </button>
+    </div>
+    <button class="show-all-btn" (click)="toggleShowAll()">{{ showAll ? 'عرض أقل' : 'عرض الكل' }}</button>
+  </div>
+  <div class="services-slider">
+    <div class="card-container">
+      <div class="service-card" *ngFor="let service of paginatedServices">
+        <div class="card-icon">
+          <fa-icon [icon]="service.icon"></fa-icon>
+        </div>
+        <h3 class="card-title">{{ service.title }}</h3>
+        <p class="card-description">{{ service.description }}</p>
+        <div class="card-tags">
+          <span class="tag" *ngFor="let tag of service.tags">{{ tag }}</span>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-primary">إجراء</button>
+          <button class="btn btn-secondary">إجراء ثانوي</button>
+        </div>
+      </div>
+    </div>
+    <div class="slider-controls" *ngIf="!showAll">
+        <button class="control-btn" (click)="prevPage()" [disabled]="currentPage === 0" aria-label="Previous Slide"><fa-icon [icon]="faChevronRight"></fa-icon></button>
+        <div class="dots">
+            <span *ngFor="let page of [].constructor(totalPages); let i = index" 
+                  class="dot" 
+                  [class.active]="i === currentPage"
+                  (click)="goToPage(i)">
+            </span>
+        </div>
+        <button class="control-btn" (click)="nextPage()" [disabled]="currentPage === totalPages - 1" aria-label="Next Slide"><fa-icon [icon]="faChevronLeft"></fa-icon></button>
+    </div>
+  </div>
+</section> 

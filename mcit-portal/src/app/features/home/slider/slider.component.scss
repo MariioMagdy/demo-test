@@ -1,0 +1,86 @@
+:host {
+  display: block;
+  direction: rtl;
+}
+
+.slider-container {
+  position: relative;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 5rem;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.slider-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.slider-content {
+  position: relative;
+  z-index: 2;
+  max-width: 50%;
+}
+
+.slider-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+.slider-content p {
+  font-size: 1.2rem;
+  margin: 0 0 2rem 0;
+}
+
+.cta-button {
+  background-color: #ffffff;
+  color: #0d2a3a;
+  border: none;
+  border-radius: 25px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-button fa-icon {
+    transform: rotate(180deg); // Flip chevron for RTL
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-bullet.active {
+  background-color: #ffffff;
+} 
